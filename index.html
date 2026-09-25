@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I'm Sorry, My Love ❤️</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    overflow: hidden;
+
+    font-family: "Segoe UI", sans-serif;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        radial-gradient(circle at 20% 20%, #ffd9e8, transparent 30%),
+        radial-gradient(circle at 80% 80%, #e6c7ff, transparent 30%),
+        linear-gradient(135deg, #ffc1d9, #f7b7d8, #dcb8f7);
+}
+
+/* FLOATING HEARTS */
+
+.background-heart {
+    position: fixed;
+    bottom: -50px;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    animation: floatHeart linear forwards;
+}
+
+@keyframes floatHeart {
+
+    0% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+
+    15% {
+        opacity: .8;
+    }
+
+    100% {
+        transform:
+            translateY(-110vh)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+}
+
+/* MAIN CARD */
+
+.container {
+    width: min(90%, 650px);
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    padding: 35px 30px;
+
+    text-align: center;
+
+    border-radius: 30px;
+
+    background: rgba(255,255,255,.38);
+
+    backdrop-filter: blur(18px);
+
+    border:
+        1px solid rgba(255,255,255,.6);
+
+    box-shadow:
+        0 20px 60px rgba(120,40,100,.22),
+        inset 0 0 30px rgba(255,255,255,.3);
+
+    position: relative;
+
+    z-index: 5;
+}
+
+/* OPEN SCREEN */
+
+.open-screen {
+    animation: appear 1s ease;
+}
+
+.envelope {
+    font-size: 100px;
+
+    animation:
+        envelopeFloat 2s ease-in-out infinite,
+        envelopeGlow 2s ease-in-out infinite;
+}
+
+@keyframes envelopeFloat {
+
+    0%,100% {
+        transform:
+            translateY(0)
+            rotate(-4deg);
+    }
+
+    50% {
+        transform:
+            translateY(-15px)
+            rotate(4deg);
+    }
+}
+
+@keyframes envelopeGlow {
+
+    0%,100% {
+        filter:
+            drop-shadow(
+                0 0 5px
+                rgba(255,255,255,.5)
+            );
+    }
+
+    50% {
+        filter:
+            drop-shadow(
+                0 0 25px
+                rgba(255,255,255,1)
+            );
+    }
+}
+
+.open-screen h1 {
+    color: #a52d6e;
+
+    font-size:
+        clamp(30px,7vw,45px);
+
+    margin:
+        15px 0 10px;
+}
+
+.open-screen p {
+    color: #673957;
+
+    font-size: 17px;
+
+    margin-bottom: 28px;
+}
+
+/* OPEN BUTTON */
+
+#openBtn {
+    border: none;
+
+    cursor: pointer;
+
+    padding:
+        16px 35px;
+
+    border-radius: 50px;
+
+    font-size: 19px;
+
+    font-weight: bold;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff5f9e,
+            #d93d83
+        );
+
+    box-shadow:
+        0 10px 30px
+        rgba(217,61,131,.4);
+
+    animation:
+        openPulse 1.8s infinite;
+
+    transition:
+        transform .3s ease;
+}
+
+#openBtn:hover {
+    transform: scale(1.08);
+}
+
+@keyframes openPulse {
+
+    0%,100% {
+        box-shadow:
+            0 10px 30px
+            rgba(217,61,131,.4);
+    }
+
+    50% {
+        box-shadow:
+            0 10px 45px
+            rgba(217,61,131,.75);
+    }
+}
+
+/* MAIN MESSAGE */
+
+.main-content {
+    animation:
+        letterOpen 1.2s ease forwards;
+}
+
+@keyframes letterOpen {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            scale(.65)
+            rotateX(40deg);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            scale(1)
+            rotateX(0);
+    }
+}
+
+/* BUTTERFLY */
+
+.butterfly {
+    font-size: 70px;
+
+    animation:
+        butterflyFloat 3s ease-in-out infinite;
+}
+
+@keyframes butterflyFloat {
+
+    0%,100% {
+        transform:
+            translateY(0)
+            rotate(-5deg);
+    }
+
+    50% {
+        transform:
+            translateY(-15px)
+            rotate(5deg);
+    }
+}
+
+/* TITLE */
+
+h1 {
+    margin:
+        10px 0 20px;
+
+    color: #a52d6e;
+
+    font-size:
+        clamp(30px,7vw,48px);
+
+    text-shadow:
+        0 0 15px
+        rgba(255,255,255,.8);
+}
+
+/* LETTER */
+
+.letter {
+    color: #673957;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+
+    text-align: left;
+}
+
+.letter p {
+    margin:
+        0 0 18px;
+
+    opacity: 0;
+
+    transform:
+        translateY(20px);
+
+    animation:
+        paragraphAppear
+        1s ease forwards;
+}
+
+/*
+    Each paragraph appears separately.
+    Text itself is NOT changed.
+*/
+
+.letter p:nth-child(1) {
+    animation-delay: .4s;
+}
+
+.letter p:nth-child(2) {
+    animation-delay: 1.4s;
+}
+
+.letter p:nth-child(3) {
+    animation-delay: 2.4s;
+}
+
+.letter p:nth-child(4) {
+    animation-delay: 3.4s;
+}
+
+@keyframes paragraphAppear {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translateY(25px);
+
+        filter:
+            blur(8px);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+        filter:
+            blur(0);
+    }
+}
+
+/* HIGHLIGHT */
+
+.highlight {
+    color: #a52d6e;
+
+    font-weight: bold;
+}
+
+/* QUESTION */
+
+.question {
+    margin-top: 25px;
+
+    color: #8e3268;
+
+    font-size:
+        clamp(22px,5vw,30px);
+
+    font-weight: bold;
+
+    opacity: 0;
+
+    transform:
+        translateY(20px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+.question.show {
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+/* BUTTONS */
+
+.buttons {
+    margin-top: 25px;
+
+    min-height: 110px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 20px;
+
+    opacity: 0;
+
+    transition:
+        opacity 1s ease;
+}
+
+.buttons.show {
+    opacity: 1;
+}
+
+button {
+    border: none;
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    padding:
+        14px 28px;
+
+    border-radius: 50px;
+
+    transition:
+        transform .35s ease,
+        opacity .35s ease,
+        padding .35s ease,
+        font-size .35s ease;
+}
+
+/* YES */
+
+#yesBtn {
+    background:
+        linear-gradient(
+            135deg,
+            #ff5f9e,
+            #d93d83
+        );
+
+    color: white;
+
+    box-shadow:
+        0 8px 25px
+        rgba(217,61,131,.35);
+
+    z-index: 3;
+}
+
+/* NO */
+
+#noBtn {
+    background: white;
+
+    color: #a83d70;
+
+    box-shadow:
+        0 5px 18px
+        rgba(100,40,80,.15);
+
+    z-index: 2;
+}
+
+/* SUCCESS */
+
+.success {
+    display: none;
+
+    animation:
+        appear 1s ease forwards;
+}
+
+.big-heart {
+    font-size: 90px;
+
+    animation:
+        heartbeat 1.2s infinite;
+}
+
+.success h2 {
+    color: #a52d6e;
+
+    font-size: 35px;
+}
+
+.success p {
+    color: #673957;
+
+    font-size: 18px;
+
+    line-height: 1.7;
+}
+
+@keyframes heartbeat {
+
+    0%,100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+/* SPARKLES */
+
+.sparkle {
+    position: fixed;
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    box-shadow:
+        0 0 12px white;
+
+    pointer-events: none;
+
+    animation:
+        sparkle 2s infinite ease-in-out;
+}
+
+@keyframes sparkle {
+
+    0%,100% {
+        opacity: .1;
+
+        transform:
+            scale(.5);
+    }
+
+    50% {
+        opacity: 1;
+
+        transform:
+            scale(1.5);
+    }
+}
+
+/* APPEAR */
+
+@keyframes appear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scale(.7);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1);
+    }
+}
+
+/* MOBILE */
+
+@media (max-width:600px) {
+
+    .container {
+        padding:
+            25px 20px;
+    }
+
+    .letter {
+        font-size: 15px;
+    }
+
+    .buttons {
+        gap: 10px;
+    }
+
+    button {
+        font-size: 16px;
+
+        padding:
+            12px 22px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div id="effects"></div>
+
+<div class="container">
+
+    <!-- OPEN MESSAGE -->
+
+    <div
+        class="open-screen"
+        id="openScreen"
+    >
+
+        <div class="envelope">
+            💌
+        </div>
+
+        <h1>
+            A Message For You ❤️
+        </h1>
+
+        <p>
+            I have something I really want to tell you...
+        </p>
+
+        <button id="openBtn">
+            OPEN MESSAGE 💌
+        </button>
+
+    </div>
+
+
+    <!-- MAIN MESSAGE -->
+
+    <div
+        class="main-content"
+        id="mainContent"
+        style="display:none;"
+    >
+
+        <div class="butterfly">
+            🦋
+        </div>
+
+        <h1>
+            I'm Sorry, My Love ❤️
+        </h1>
+
+        <div
+            class="letter"
+            id="letter"
+        >
+
+            <p>
+                I'm truly sorry for what I did and for hurting you.
+                I know that saying "sorry" cannot immediately erase the pain or disappointment I caused,
+                but I want you to know that I genuinely regret it.
+            </p>
+
+            <p>
+                I'm so sorry, my love love.
+                I'm sorry for the moments when I failed to understand you,
+                for the things I did or said that hurt you,
+                and for making you feel anything less than the love you deserve.
+            </p>
+
+            <p>
+                Despite everything, I still choose you.
+                I still care about you deeply, and I still want to protect what we have.
+                I hope you can see how sincere I am when I say this:
+            </p>
+
+            <p class="highlight">
+                I'm truly, deeply sorry, my love love ko po.
+                ILOVE YOU SOOO SOO MUCH PO ❤️
+            </p>
+
+        </div>
+
+
+        <div
+            class="question"
+            id="question"
+        >
+            Will you forgive me? 🥺❤️
+        </div>
+
+
+        <div
+            class="buttons"
+            id="buttons"
+        >
+
+            <button id="yesBtn">
+                YES ❤️
+            </button>
+
+            <button id="noBtn">
+                NO 😭
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- SUCCESS -->
+
+    <div
+        class="success"
+        id="success"
+    >
+
+        <div class="big-heart">
+            💗
+        </div>
+
+        <h2>
+            Thank You, My Love! 🥺❤️
+        </h2>
+
+        <p>
+            I promise I'll do my best to learn from my mistakes,
+            understand you better, and take better care of your heart.
+        </p>
+
+        <p>
+            I love you sooooo much, my love love ko po. 🦋💕
+        </p>
+
+        <p>
+            No matter the distance, I will always choose you. ❤️
+        </p>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* ELEMENTS */
+
+const openBtn =
+    document.getElementById("openBtn");
+
+const openScreen =
+    document.getElementById("openScreen");
+
+const mainContent =
+    document.getElementById("mainContent");
+
+const question =
+    document.getElementById("question");
+
+const buttons =
+    document.getElementById("buttons");
+
+const yesBtn =
+    document.getElementById("yesBtn");
+
+const noBtn =
+    document.getElementById("noBtn");
+
+const success =
+    document.getElementById("success");
+
+const effects =
+    document.getElementById("effects");
+
+
+/* OPEN MESSAGE */
+
+openBtn.addEventListener(
+    "click",
+    () => {
+
+        openScreen.style.animation =
+            "letterOpen .8s ease reverse forwards";
+
+        setTimeout(() => {
+
+            openScreen.style.display =
+                "none";
+
+            mainContent.style.display =
+                "block";
+
+            startMessage();
+
+        }, 650);
+
+    }
+);
+
+
+/* START MESSAGE */
+
+function startMessage() {
+
+    /*
+        The paragraphs already have their
+        own animation delays.
+    */
+
+    setTimeout(() => {
+
+        question.classList.add("show");
+
+    }, 5000);
+
+
+    setTimeout(() => {
+
+        buttons.classList.add("show");
+
+    }, 5800);
+
+}
+
+
+/* YES / NO */
+
+let yesScale = 1;
+
+let noScale = 1;
+
+let clicks = 0;
+
+
+/* YES */
+
+yesBtn.addEventListener(
+    "click",
+    () => {
+
+        mainContent.style.display =
+            "none";
+
+        success.style.display =
+            "block";
+
+        createExplosion();
+
+    }
+);
+
+
+/* NO */
+
+noBtn.addEventListener(
+    "click",
+    () => {
+
+        clicks++;
+
+        yesScale += .35;
+
+        noScale -= .12;
+
+
+        if (noScale < .15) {
+
+            noScale = 0;
+
+        }
+
+
+        yesBtn.style.transform =
+            `scale(${yesScale})`;
+
+        noBtn.style.transform =
+            `scale(${noScale})`;
+
+
+        if (clicks >= 6) {
+
+            yesBtn.textContent =
+                "YES PLEASE 🥺❤️";
+
+        }
+
+
+        if (clicks >= 9) {
+
+            yesBtn.textContent =
+                "YES, MY LOVE ❤️";
+
+        }
+
+
+        if (clicks >= 11) {
+
+            noBtn.style.opacity =
+                "0";
+
+            noBtn.style.pointerEvents =
+                "none";
+
+            noBtn.style.width =
+                "0";
+
+            noBtn.style.padding =
+                "0";
+
+            noBtn.style.margin =
+                "0";
+
+            noBtn.style.fontSize =
+                "0";
+
+            yesBtn.textContent =
+                "YES ❤️";
+
+            yesBtn.style.transform =
+                `scale(${yesScale + .3})`;
+
+        }
+
+    }
+);
+
+
+/* HEART LIST */
+
+const heartList = [
+    "❤️",
+    "💗",
+    "💖",
+    "💕",
+    "💓",
+    "💞",
+    "🩷",
+    "🦋"
+];
+
+
+/* FLOATING HEARTS */
+
+function createHeart() {
+
+    const heart =
+        document.createElement("div");
+
+    heart.className =
+        "background-heart";
+
+    heart.textContent =
+        heartList[
+            Math.floor(
+                Math.random() *
+                heartList.length
+            )
+        ];
+
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+    heart.style.fontSize =
+        (15 + Math.random() * 25) + "px";
+
+    heart.style.animationDuration =
+        (5 + Math.random() * 5) + "s";
+
+    effects.appendChild(heart);
+
+    setTimeout(
+        () => heart.remove(),
+        11000
+    );
+
+}
+
+setInterval(
+    createHeart,
+    500
+);
+
+
+/* SPARKLES */
+
+function createSparkle() {
+
+    const sparkle =
+        document.createElement("div");
+
+    sparkle.className =
+        "sparkle";
+
+    sparkle.style.left =
+        Math.random() * 100 + "vw";
+
+    sparkle.style.top =
+        Math.random() * 100 + "vh";
+
+    sparkle.style.animationDelay =
+        Math.random() * 2 + "s";
+
+    effects.appendChild(sparkle);
+
+    setTimeout(
+        () => sparkle.remove(),
+        3000
+    );
+
+}
+
+setInterval(
+    createSparkle,
+    350
+);
+
+
+/* HEART EXPLOSION */
+
+function createExplosion() {
+
+    for (
+        let i = 0;
+        i < 45;
+        i++
+    ) {
+
+        const heart =
+            document.createElement("div");
+
+        heart.textContent =
+            heartList[
+                Math.floor(
+                    Math.random() *
+                    heartList.length
+                )
+            ];
+
+        heart.style.position =
+            "fixed";
+
+        heart.style.left =
+            "50%";
+
+        heart.style.top =
+            "50%";
+
+        heart.style.fontSize =
+            (18 + Math.random() * 30) + "px";
+
+        heart.style.zIndex =
+            "100";
+
+        heart.style.pointerEvents =
+            "none";
+
+
+        const x =
+            (Math.random() - .5) * 700;
+
+        const y =
+            (Math.random() - .5) * 700;
+
+
+        heart.animate(
+
+            [
+                {
+                    transform:
+                        "translate(-50%,-50%) scale(0)",
+
+                    opacity: 1
+                },
+
+                {
+                    transform:
+                        `translate(
+                            calc(-50% + ${x}px),
+                            calc(-50% + ${y}px)
+                        )
+                        scale(1.4)`,
+
+                    opacity: 0
+                }
+            ],
+
+            {
+                duration:
+                    1800 +
+                    Math.random() * 1200,
+
+                easing:
+                    "ease-out",
+
+                fill:
+                    "forwards"
+            }
+
+        );
+
+
+        document.body.appendChild(
+            heart
+        );
+
+
+        setTimeout(
+            () => heart.remove(),
+            3200
+        );
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
+
