@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For My Love ❤️</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    overflow: hidden;
+
+    font-family: "Segoe UI", Arial, sans-serif;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        radial-gradient(circle at 20% 20%, #ffd6e5 0%, transparent 25%),
+        radial-gradient(circle at 80% 80%, #ffb6d0 0%, transparent 25%),
+        linear-gradient(135deg, #ff758c, #ff7eb3);
+
+    color: white;
+}
+
+/* =========================
+   BACKGROUND GLOW
+========================= */
+
+body::before {
+    content: "";
+
+    position: fixed;
+
+    width: 500px;
+    height: 500px;
+
+    background: rgba(255,255,255,0.12);
+
+    border-radius: 50%;
+
+    filter: blur(80px);
+
+    animation: backgroundGlow 6s infinite alternate;
+
+    pointer-events: none;
+}
+
+@keyframes backgroundGlow {
+
+    from {
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+
+    to {
+        transform: scale(1.3);
+        opacity: 1;
+    }
+
+}
+
+/* =========================
+   MAIN CARD
+========================= */
+
+.card {
+
+    width: 92%;
+    max-width: 720px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    padding: 45px 35px;
+
+    text-align: center;
+
+    background: rgba(255,255,255,0.16);
+
+    backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255,255,255,0.35);
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,0.25),
+        inset 0 0 30px rgba(255,255,255,0.08);
+
+    animation: cardAppear 1.5s ease;
+
+    position: relative;
+
+    z-index: 10;
+}
+
+@keyframes cardAppear {
+
+    from {
+        transform: scale(0.5) translateY(40px);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+
+}
+
+/* =========================
+   ENVELOPE
+========================= */
+
+.envelope {
+
+    font-size: 85px;
+
+    display: inline-block;
+
+    cursor: pointer;
+
+    animation:
+        envelopeBounce 1.5s infinite,
+        envelopeGlow 2s infinite alternate;
+
+    transition: 0.3s;
+}
+
+.envelope:hover {
+
+    transform: scale(1.2) rotate(5deg);
+
+}
+
+@keyframes envelopeBounce {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+}
+
+@keyframes envelopeGlow {
+
+    from {
+        filter: drop-shadow(0 0 5px white);
+    }
+
+    to {
+        filter: drop-shadow(0 0 25px white);
+    }
+
+}
+
+/* =========================
+   TITLE
+========================= */
+
+h1 {
+
+    margin-top: 15px;
+
+    font-size: 48px;
+
+    letter-spacing: 2px;
+
+    text-shadow:
+        0 0 10px white,
+        0 0 25px rgba(255,255,255,0.7);
+
+    animation: titleGlow 2s infinite alternate;
+}
+
+@keyframes titleGlow {
+
+    from {
+        text-shadow:
+            0 0 10px white;
+    }
+
+    to {
+        text-shadow:
+            0 0 10px white,
+            0 0 30px white,
+            0 0 50px #ffb6d0;
+    }
+
+}
+
+.subtitle {
+
+    margin-top: 12px;
+
+    font-size: 18px;
+
+    opacity: 0.9;
+}
+
+/* =========================
+   CLICK MESSAGE
+========================= */
+
+.clickMessage {
+
+    margin-top: 20px;
+
+    font-size: 14px;
+
+    opacity: 0.8;
+
+    animation: pulseText 1.5s infinite;
+}
+
+@keyframes pulseText {
+
+    0%,100% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+}
+
+/* =========================
+   LETTER
+========================= */
+
+.message {
+
+    display: none;
+
+    margin-top: 30px;
+
+    padding: 25px;
+
+    background: rgba(255,255,255,0.10);
+
+    border-radius: 20px;
+
+    border: 1px solid rgba(255,255,255,0.2);
+
+    font-size: 19px;
+
+    line-height: 1.9;
+
+    text-align: left;
+
+    animation: letterOpen 1.5s ease;
+
+}
+
+@keyframes letterOpen {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(50px)
+            scale(0.9);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+/* typing text */
+
+#typedText {
+
+    min-height: 180px;
+
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+button {
+
+    margin-top: 25px;
+
+    padding: 15px 32px;
+
+    border: none;
+
+    border-radius: 40px;
+
+    background: white;
+
+    color: #ff4f81;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.25);
+
+    transition: 0.3s;
+
+}
+
+button:hover {
+
+    transform:
+        scale(1.1)
+        rotate(-2deg);
+
+    box-shadow:
+        0 10px 35px rgba(255,255,255,0.5);
+
+}
+
+/* =========================
+   FINAL LOVE
+========================= */
+
+.final {
+
+    display: none;
+
+    margin-top: 35px;
+
+    animation:
+        finalAppear 1.5s ease,
+        lovePulse 1.2s infinite;
+}
+
+.finalLove {
+
+    font-size: 42px;
+
+    font-weight: bold;
+
+    text-shadow:
+        0 0 10px white,
+        0 0 25px #ffb6d0,
+        0 0 50px white;
+
+}
+
+.signature {
+
+    margin-top: 15px;
+
+    font-size: 20px;
+
+    font-style: italic;
+
+}
+
+@keyframes finalAppear {
+
+    from {
+
+        transform:
+            scale(0)
+            rotate(-10deg);
+
+        opacity: 0;
+
+    }
+
+    to {
+
+        transform:
+            scale(1)
+            rotate(0);
+
+        opacity: 1;
+
+    }
+
+}
+
+@keyframes lovePulse {
+
+    0%,100% {
+
+        transform: scale(1);
+
+    }
+
+    50% {
+
+        transform: scale(1.06);
+
+    }
+
+}
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.heart {
+
+    position: fixed;
+
+    bottom: -50px;
+
+    pointer-events: none;
+
+    z-index: 1;
+
+    animation: heartFloat linear forwards;
+
+}
+
+@keyframes heartFloat {
+
+    0% {
+
+        transform:
+            translateY(0)
+            rotate(0deg)
+            scale(0.6);
+
+        opacity: 0;
+
+    }
+
+    15% {
+
+        opacity: 1;
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-50vh)
+            rotate(180deg)
+            scale(1);
+
+    }
+
+    100% {
+
+        transform:
+            translateY(-115vh)
+            rotate(360deg)
+            scale(1.5);
+
+        opacity: 0;
+
+    }
+
+}
+
+/* =========================
+   PETALS
+========================= */
+
+.petal {
+
+    position: fixed;
+
+    top: -40px;
+
+    pointer-events: none;
+
+    z-index: 1;
+
+    animation: petalFall linear forwards;
+
+}
+
+@keyframes petalFall {
+
+    0% {
+
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity: 0;
+
+    }
+
+    10% {
+
+        opacity: 1;
+
+    }
+
+    50% {
+
+        transform:
+            translateY(50vh)
+            translateX(80px)
+            rotate(180deg);
+
+    }
+
+    100% {
+
+        transform:
+            translateY(110vh)
+            translateX(-80px)
+            rotate(360deg);
+
+        opacity: 0;
+
+    }
+
+}
+
+/* =========================
+   SPARKLES
+========================= */
+
+.sparkle {
+
+    position: fixed;
+
+    pointer-events: none;
+
+    z-index: 1;
+
+    animation: sparkleAnimation 2s ease-out forwards;
+
+}
+
+@keyframes sparkleAnimation {
+
+    0% {
+
+        transform: scale(0);
+
+        opacity: 0;
+
+    }
+
+    50% {
+
+        transform: scale(1.5);
+
+        opacity: 1;
+
+    }
+
+    100% {
+
+        transform: scale(0);
+
+        opacity: 0;
+
+    }
+
+}
+
+/* =========================
+   EXPLOSION HEART
+========================= */
+
+.explosionHeart {
+
+    position: fixed;
+
+    left: 50%;
+
+    top: 50%;
+
+    pointer-events: none;
+
+    z-index: 999;
+
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    body {
+
+        padding: 15px;
+
+        overflow-y: auto;
+
+    }
+
+    .card {
+
+        padding: 35px 20px;
+
+        max-height: 92vh;
+
+    }
+
+    .envelope {
+
+        font-size: 65px;
+
+    }
+
+    h1 {
+
+        font-size: 35px;
+
+    }
+
+    .subtitle {
+
+        font-size: 16px;
+
+    }
+
+    .message {
+
+        font-size: 17px;
+
+        line-height: 1.8;
+
+        padding: 20px;
+
+    }
+
+    .finalLove {
+
+        font-size: 30px;
+
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<div class="card">
+
+
+    <!-- ENVELOPE -->
+
+    <div
+        class="envelope"
+        id="envelope"
+        onclick="openLetter()"
+    >
+        💌
+    </div>
+
+
+    <h1>
+            IM SORRY MY LOVE 🥺
+    </h1>
+
+
+    <p class="subtitle">
+        I have something I want to tell you...
+    </p>
+
+
+    <p
+        class="clickMessage"
+        id="clickMessage"
+    >
+        💌 Click the envelope 💌
+    </p>
+
+
+    <!-- LETTER -->
+
+    <div
+        class="message"
+        id="message"
+    >
+
+        <p id="typedText"></p>
+
+
+        <button
+            id="forgiveButton"
+            onclick="forgive()"
+        >
+             CAN YOU FORGIVE ME MY LOVE? 🥺
+        </button>
+
+
+        <!-- FINAL -->
+
+        <div
+            class="final"
+            id="final"
+        >
+
+            <div class="finalLove">
+
+                I LOVE YOU SOOOO MUCH ❤️💕😘
+
+            </div>
+
+
+            <div class="signature">
+
+                IM SORRY YOUR PENGUIN💕
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =========================
+   YOUR EXACT MESSAGE
+========================= */
+
+const letterText =
+`Im sorry po my love love ko po nag kamali ako po sorry po sa totoo lang po love love binabago kuna po lahat po kasi ayaw kuna ma ulit yung ganun po sorry po kasi naging ganun ako po sobrang na miss lang kita po nun po kaya ganun yung nasabi ko po my love love sana po mapatawad mo po ako po sorry po my love love ko po bati na tayo po plsss im sorry po di na ako magiging ganun po dapat di ako naging ganun po sorry po my love love ko po gustong guto kuna po maayos tayo po im so so sorry po my love love ko po I love you sooooooooo soooo much po💕💕😘😘`;
+
+
+/* =========================
+   OPEN LETTER
+========================= */
+
+function openLetter() {
+
+    const envelope =
+        document.getElementById("envelope");
+
+    const message =
+        document.getElementById("message");
+
+    const clickMessage =
+        document.getElementById("clickMessage");
+
+
+    envelope.innerHTML = "💖";
+
+    envelope.style.animation =
+        "none";
+
+
+    clickMessage.style.display =
+        "none";
+
+
+    message.style.display =
+        "block";
+
+
+    typeLetter();
+
+
+    createSparkles();
+
+}
+
+
+/* =========================
+   TYPING ANIMATION
+========================= */
+
+function typeLetter() {
+
+    const text =
+        document.getElementById("typedText");
+
+    let index = 0;
+
+
+    text.innerHTML = "";
+
+
+    function type() {
+
+        if (index < letterText.length) {
+
+            text.innerHTML +=
+                letterText.charAt(index);
+
+            index++;
+
+
+            let speed = 18;
+
+
+            if (
+                letterText.charAt(index) === " "
+            ) {
+
+                speed = 8;
+
+            }
+
+
+            setTimeout(type, speed);
+
+        }
+
+    }
+
+
+    type();
+
+}
+
+
+/* =========================
+   FORGIVE
+========================= */
+
+function forgive() {
+
+    const final =
+        document.getElementById("final");
+
+    const button =
+        document.getElementById("forgiveButton");
+
+
+    button.style.display =
+        "none";
+
+
+    final.style.display =
+        "block";
+
+
+    heartExplosion();
+
+
+    createSparkles();
+
+
+    createExtraHearts();
+
+}
+
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+function createHeart() {
+
+    const heart =
+        document.createElement("div");
+
+
+    heart.className =
+        "heart";
+
+
+    const hearts = [
+
+        "❤️",
+        "💗",
+        "💖",
+        "💕",
+        "💓",
+        "💞",
+        "💘",
+        "💝"
+
+    ];
+
+
+    heart.innerHTML =
+        hearts[
+            Math.floor(
+                Math.random() *
+                hearts.length
+            )
+        ];
+
+
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+
+    heart.style.fontSize =
+        (15 + Math.random() * 30) + "px";
+
+
+    heart.style.animationDuration =
+        (5 + Math.random() * 6) + "s";
+
+
+    document.body.appendChild(
+        heart
+    );
+
+
+    setTimeout(() => {
+
+        heart.remove();
+
+    }, 12000);
+
+}
+
+
+setInterval(
+    createHeart,
+    400
+);
+
+
+/* =========================
+   FALLING PETALS
+========================= */
+
+function createPetal() {
+
+    const petal =
+        document.createElement("div");
+
+
+    petal.className =
+        "petal";
+
+
+    const petals = [
+
+        "🌸",
+        "🌹",
+        "🌷",
+        "💮"
+
+    ];
+
+
+    petal.innerHTML =
+        petals[
+            Math.floor(
+                Math.random() *
+                petals.length
+            )
+        ];
+
+
+    petal.style.left =
+        Math.random() * 100 + "vw";
+
+
+    petal.style.fontSize =
+        (15 + Math.random() * 20) + "px";
+
+
+    petal.style.animationDuration =
+        (6 + Math.random() * 5) + "s";
+
+
+    document.body.appendChild(
+        petal
+    );
+
+
+    setTimeout(() => {
+
+        petal.remove();
+
+    }, 12000);
+
+}
+
+
+setInterval(
+    createPetal,
+    900
+);
+
+
+/* =========================
+   SPARKLES
+========================= */
+
+function createSparkle() {
+
+    const sparkle =
+        document.createElement("div");
+
+
+    sparkle.className =
+        "sparkle";
+
+
+    sparkle.innerHTML =
+        "✨";
+
+
+    sparkle.style.left =
+        Math.random() * 100 + "vw";
+
+
+    sparkle.style.top =
+        Math.random() * 100 + "vh";
+
+
+    sparkle.style.fontSize =
+        (10 + Math.random() * 20) + "px";
+
+
+    document.body.appendChild(
+        sparkle
+    );
+
+
+    setTimeout(() => {
+
+        sparkle.remove();
+
+    }, 2000);
+
+}
+
+
+setInterval(
+    createSparkle,
+    700
+);
+
+
+/* =========================
+   EXTRA HEARTS
+========================= */
+
+function createExtraHearts() {
+
+    for (
+        let i = 0;
+        i < 25;
+        i++
+    ) {
+
+        setTimeout(() => {
+
+            createHeart();
+
+        }, i * 100);
+
+    }
+
+}
+
+
+/* =========================
+   HEART EXPLOSION
+========================= */
+
+function heartExplosion() {
+
+    for (
+        let i = 0;
+        i < 50;
+        i++
+    ) {
+
+        const heart =
+            document.createElement("div");
+
+
+        heart.className =
+            "explosionHeart";
+
+
+        heart.innerHTML =
+            "❤️";
+
+
+        heart.style.fontSize =
+            (15 + Math.random() * 30) + "px";
+
+
+        const x =
+            (Math.random() - 0.5) * 800;
+
+
+        const y =
+            (Math.random() - 0.5) * 800;
+
+
+        heart.animate(
+
+            [
+
+                {
+
+                    transform:
+                        "translate(-50%, -50%) scale(0)",
+
+                    opacity: 1
+
+                },
+
+                {
+
+                    transform:
+                        `translate(
+                            calc(-50% + ${x}px),
+                            calc(-50% + ${y}px)
+                        )
+                        rotate(${Math.random() * 720}deg)
+                        scale(1.5)`,
+
+                    opacity: 0
+
+                }
+
+            ],
+
+            {
+
+                duration:
+                    1500 + Math.random() * 1000,
+
+                easing:
+                    "cubic-bezier(.17,.67,.83,.67)"
+
+            }
+
+        );
+
+
+        document.body.appendChild(
+            heart
+        );
+
+
+        setTimeout(() => {
+
+            heart.remove();
+
+        }, 3000);
+
+    }
+
+}
+
+
+/* =========================
+   INITIAL EFFECTS
+========================= */
+
+for (
+    let i = 0;
+    i < 5;
+    i++
+) {
+
+    setTimeout(
+        createHeart,
+        i * 500
+    );
+
+}
+
+</script>
+
+</body>
+</html>
